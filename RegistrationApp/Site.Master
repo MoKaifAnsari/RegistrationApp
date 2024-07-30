@@ -1,0 +1,147 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RegistrationApp.SiteMaster" %>
+
+<!DOCTYPE html">
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="nns" content="" />
+
+    <title>HAL - Koraput</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+
+    <!-- Custom fonts for this template-->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/layout.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css" />
+
+    <%--FOR TIMER--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        function ValidateAlpha(evt) {
+            evt = (evt) ? evt : window.event;
+            var keyCode = (evt.which) ? evt.which : evt.keyCode;
+            if ((keyCode < 65 || keyCode > 90) &&
+                (keyCode < 97 || keyCode > 123) &&
+                keyCode != 32 && keyCode != 39) {
+                return false;
+            }
+            return true;
+        }
+
+        function DisableBackButton() {
+            window.history.forward()
+        }
+        DisableBackButton();
+        window.onload = DisableBackButton;
+        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+        window.onunload = function () { void (0) }
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body id="page-top" onunload="disableBackButton()">
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <div class="col-md-2 col-12">
+                <center>
+                    <img src="img/logo.png" class="img img-rounded img-responsive" height="80px" width="150px" />
+                </center>
+            </div>
+            <div class="col-lg-6 col-12">
+                <center class="py-1">
+                    <h4 class="text-primary">&emsp;&emsp;&emsp;&emsp;&emsp;<b>Hindustan Aeronautics Limited</b></h4>
+                    <h5 class="mb-0">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Koraput Division (A Govt. of India Enterprise)</h5>
+                    <p class="mb-0">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;PO: Sunabeda-763002, Dist. : Koraput, Odisha, India</p>
+                </center>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="text-right py-0">
+                    <p class="mb-0 mt-3">For Technical Support Only (10:00 AM to 5:00 PM)</p>
+                    <p class="mb-0"><span class="text"><i class="fa fa-phone"></i>&nbsp; Contact Number : 9234191300 </span></p>
+                    <p class="mb-0"><span class="text"><i class="fa fa-envelope"></i>&nbsp; Email : halkpt@reg.org.in</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar-expand-sm navbar-dark bg-gradient-info">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index">
+                                        <i class="fas fa-fw fa-home text-white-400"></i>
+                                        <span>Home</span></a>
+                                </li>
+                                <%--                                   <li class="nav-item active">
+                                        <a class="nav-link" href="\img\Advertisement_DMI_Patna.pdf" target="_blank"><i class='fas fa-bullhorn'></i>Advertisement <span class="sr-only">(current)</span></a>
+                                   </li>--%>
+                            </ul>
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <span class="nav-link">Advertisement No.: KPT/TBE/2024-02</span>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav">
+                                <li class="active">
+                                    <span class="nav-link">
+                                        <asp:Label ID="lblAppno" runat="server" Text=""></asp:Label></span>
+                                </li>
+                            </ul>
+
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Index.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        if (document.referrer == "") {
+            document.location = "/Login.aspx";
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap4.min.js"></script>
+</body>
+</html>

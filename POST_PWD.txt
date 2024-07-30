@@ -1,0 +1,19 @@
+USE [HAL_KPT24]
+GO
+
+/****** Object:  Table [dbo].[POST_PWD]    Script Date: 30-07-2024 12:18:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[POST_PWD](
+	[SEQ] [int] IDENTITY(1,1) NOT NULL,
+	[POST_NAME] [nvarchar](255) NULL,
+	[PWD_TYPE] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+GO
+
+

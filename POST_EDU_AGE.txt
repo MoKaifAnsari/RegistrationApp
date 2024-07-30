@@ -1,0 +1,45 @@
+USE [HAL_KPT24]
+GO
+
+/****** Object:  Table [dbo].[POST_EDU_AGE]    Script Date: 30-07-2024 12:17:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[POST_EDU_AGE](
+	[ID] [float] NULL,
+	[DISCIPLINE] [nvarchar](255) NULL,
+	[Post_UR] [float] NULL,
+	[Post_EWS] [float] NULL,
+	[Post_SC] [float] NULL,
+	[Post_ST] [float] NULL,
+	[Post_OBC] [float] NULL,
+	[Post_PWD] [float] NULL,
+	[Edu_10th] [float] NULL,
+	[Edu_12th] [float] NULL,
+	[Edu_ITI] [float] NULL,
+	[NAC] [float] NULL,
+	[Edu_Diploma] [float] NULL,
+	[Per_UR] [float] NULL,
+	[Per_EWS] [float] NULL,
+	[Per_SC] [float] NULL,
+	[Per_ST] [float] NULL,
+	[Per_OBC] [float] NULL,
+	[Per_PwBD] [float] NULL,
+	[Age_UR] [float] NULL,
+	[Age_EWS] [float] NULL,
+	[Age_SC] [float] NULL,
+	[Age_ST] [float] NULL,
+	[Age_OBC] [float] NULL,
+	[PWD_UR] [float] NULL,
+	[PWD_EWS] [float] NULL,
+	[PWD_SC] [float] NULL,
+	[PWD_ST] [float] NULL,
+	[PWD_OBC] [float] NULL
+) ON [PRIMARY]
+
+GO
+
+
